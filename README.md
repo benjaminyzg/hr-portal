@@ -39,3 +39,56 @@ The **HR Management Portal** provides a centralized platform for employees to su
 ---
 
 ## 📐 Portal Structure & Architecture
+```text
+hr-portal/
+├── apps/ / src/
+│   ├── modules/
+│   │   ├── auth/                # SSO, JWT, and Role-Based Access Control (RBAC)
+│   │   ├── leave/               # MC, Entitlements, Childcare & Compassionate Leave
+│   │   ├── claims/              # Medical, Dental, Prescription Glass, Meals, Transport
+│   │   │   ├── medical/         # Outpatient & Optical (Glasses) claims
+│   │   │   ├── transport/       # Petrol, Diesel, ERP, Carpark & Mileage logs
+│   │   │   └── meals/           # Meal allowance submissions
+│   │   └── procurement/         # Purchase Request (PR) lifecycle & approval workflows
+│   ├── components/              # Shared UI components (Forms, Tables, File Uploaders)
+│   └── api/                     # Backend routes & controller endpoints
+├── docs/                        # API specifications & deployment guides
+└── database/                    # Migrations, schemas, and seeds
+```
+
+---
+
+## 🛠️ Technology Stack
+
+*(Customize based on your technical stack)*
+
+* **Frontend:** React / Next.js / Vue.js / Tailwind CSS
+* **Backend:** Node.js (Express/NestJS) / Python (FastAPI/Django) / Go
+* **Database:** PostgreSQL / MySQL / MongoDB
+* **Authentication:** Role-Based Access Control (RBAC), SSO / OAuth 2.0 / JWT
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+* Node.js (v18+) or Python (v3.10+)
+* Database instance (PostgreSQL/MySQL)
+
+### Installation
+
+```bash
+# Clone the repository
+git clone [https://github.com/benjaminyzg/hr-portal.git](https://github.com/benjaminyzg/hr-portal.git)
+
+# Navigate into the project directory
+cd hr-portal
+
+# Install dependencies
+npm install  # or pip install -r requirements.txt
+
+# Environment setup
+cp .env.example .env
+
+# Run development server
+npm run dev
