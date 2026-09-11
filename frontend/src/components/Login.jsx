@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
+import { loginUser } from '../api';
 
 export default function Login({ onLoginSuccess }) {
   const [credentials, setCredentials] = useState({ username: '', password: '' });
   const [error, setError] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    
-    if (credentials.username && credentials.password) {
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+    try {
+      const res = await loginUser(credentials);
+      // Store access token in browser storage
+      localStorage.setItem('token', res.data.access);
       setError('');
       onLoginSuccess(credentials.username);
-    } else {
-      setError('Please enter both username and password.');
+    } catch (err) {
+      setError('Invalid username or password.');
     }
   };
 

@@ -4,6 +4,9 @@ const API = axios.create({
   baseURL: 'http://127.0.0.1:8000/api/',
 });
 
+export const loginUser = (credentials) => API.post('token/', credentials);
+export const fetchUsers = () => API.get('users/');
+
 export const fetchLeaves = () => API.get('leaves/');
 export const submitLeave = (data) => API.post('leaves/', data);
 
